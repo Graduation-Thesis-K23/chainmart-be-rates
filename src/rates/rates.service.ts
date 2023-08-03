@@ -12,6 +12,7 @@ export class RatesService {
   ) {}
 
   async getRatesByUsername(username: string) {
+    console.log("getRatesByUsername", username);
     try {
       const rates = await this.rateRepository.find({
         where: { username },
@@ -28,6 +29,7 @@ export class RatesService {
   }
 
   async getRatesByProductId(productId: string) {
+    console.log("getRatesByProductId", productId);
     try {
       const rates = await this.rateRepository.find({
         where: { product_id: productId },
