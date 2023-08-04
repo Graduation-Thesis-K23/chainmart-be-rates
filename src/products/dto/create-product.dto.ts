@@ -15,4 +15,8 @@ export class CreateProductDto {
   @IsNotEmpty()
   @IsString()
   slug: string;
+
+  @IsNotEmpty()
+  @IsString()
+  image: string;
 }
