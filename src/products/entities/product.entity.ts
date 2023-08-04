@@ -13,4 +13,7 @@ export class Product {
 
   @Column()
   slug: string;
+
+  @Column()
+  image: string;
 }
