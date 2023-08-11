@@ -1,20 +1,15 @@
-import {
-  CreateDateColumn,
-  UpdateDateColumn,
-  DeleteDateColumn,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { CreateDateColumn, UpdateDateColumn, DeleteDateColumn, PrimaryGeneratedColumn } from "typeorm";
 
 export abstract class BaseEntity {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ type: "timestamptz" })
   created_at: Date;
 
-  @UpdateDateColumn({ select: false })
+  @UpdateDateColumn({ select: false, type: "timestamptz" })
   updated_at: Date;
 
-  @DeleteDateColumn({ select: false })
+  @DeleteDateColumn({ select: false, type: "timestamptz" })
   deleted_at: Date;
 }
