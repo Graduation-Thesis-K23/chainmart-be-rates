@@ -16,6 +16,11 @@ export class RatesController {
     return this.ratesService.getRatesByProductId(productId);
   }
 
+  @MessagePattern("rates.get-star-by-ids")
+  getStarByIds(@Payload() data: any) {
+    return this.ratesService.getStarByIds(data.ids);
+  }
+
   @EventPattern("rates.rated")
   async rated(@Payload() data: any) {
     return this.ratesService.rated(data);
