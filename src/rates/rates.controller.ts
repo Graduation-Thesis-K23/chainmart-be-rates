@@ -6,6 +6,12 @@ import { RatesService } from "./rates.service";
 export class RatesController {
   constructor(private readonly ratesService: RatesService) {}
 
+  @MessagePattern("rates.health-check")
+  async healthCheck() {
+    console.log("rates.health-check received");
+    return "rates service is working";
+  }
+
   @MessagePattern("rates.getratesbyusername")
   getRatesByUsername(@Payload() username: string) {
     return this.ratesService.getRatesByUsername(username);
